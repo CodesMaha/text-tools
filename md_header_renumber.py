@@ -39,7 +39,7 @@ def main():
     argv_cmd = sys.argv[1:]
     if argn_cmd == 1:
         file_path = argv_cmd[0]
-        for md_line in fileinput.input(file_path, inplace=1):
+        for md_line in fileinput.input(file_path, inplace=1, encoding='utf-8'):
             sys.stdout.write(process_md_line(md_line))
     else:
         raise SystemExit(f"Usage: {sys.argv[0]} file")
