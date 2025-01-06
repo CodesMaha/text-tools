@@ -13,7 +13,7 @@ Limitations:
 
 from re import Match, compile
 import sys
-from fileinput import input as finput  # Warning: print() will write to file!
+import fileinput # Warning: print() will write to file!
 
 
 header_num = 0
@@ -43,7 +43,7 @@ def main():
 
     if argn_cmd == 1:
         file_path = argv_cmd[0]
-        for md_line in finput(file_path, inplace=1, encoding='utf-8'):
+        for md_line in fileinput.input(file_path, inplace=1, encoding='utf-8'):
             sys.stdout.write(process_md_line(md_line))
     else:
         raise SystemExit(f"Usage: {sys.argv[0]} file")
